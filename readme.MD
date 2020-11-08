@@ -1,7 +1,5 @@
 # Personal Virtual Agent
-
-
-
+Omita is a Virtual Assistant...
 ## Upcoming Features
 
 ### General Social Interation
