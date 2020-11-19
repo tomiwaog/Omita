@@ -1,8 +1,10 @@
 # Personal Virtual Agent
-Omita is a Virtual Assistant...
-## Upcoming Features
+Omita is a Virtual Assistant with Cognitive abilities. Able to understand expressions, humour, apathy and empathy.
 
 ### General Social Interation
+Omita is capable to converse with human in Natural Language.
+!["Omita Artificial Intelligence BOT" having a conversation with human](https://github.com/[username]/[reponame]/blob/[master]/omita_chatbot.PNG?raw=true)
+## Upcoming Features
 
 ### Arrange Emergency PhoneCalls
 
@@ -13,5 +15,7 @@ Omita is a Virtual Assistant...
 ### Able to perform Mathematical Arithmetic
 
 ### Business Marketting Mailing
+
+### Improved UI
 
 ### SMS Spoofing
