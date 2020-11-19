@@ -1,31 +1,39 @@
+const { resolveInclude } = require('ejs');
+
 function WatsonServiceSetUp() {
     const AssistantV1 = require('ibm-watson/assistant/v1');
     const { IamAuthenticator } = require('ibm-watson/auth');
-    
+
     const assistant = new AssistantV1({
-      version: '2020-04-01',
-      authenticator: new IamAuthenticator({
-        apikey: process.env.MESSENGER_API_KEY,
-      }),
-      serviceUrl: 'https://api.eu-gb.assistant.watson.cloud.ibm.com',
+        version: '2020-04-01',
+        authenticator: new IamAuthenticator({
+            apikey: process.env.MESSENGER_API_KEY,
+        }),
+        serviceUrl: 'https://api.eu-gb.assistant.watson.cloud.ibm.com',
     });
     return assistant;
 }
 
 const assistant = WatsonServiceSetUp();
 
-async function sendMessage(userMessage) {
-    console.log("BOTMESSAGINGSERVICE: ")
-    console.log(userMessage)
-    await assistant.message({
+function sendMessage(userMessage, next) {
+    console.log("BOTMESSAGINGSERVICE: "+ userMessage);
+
+    assistant.message({
         workspaceId: process.env.AGENTID,
         input: { 'text': userMessage }
     })
         .then(res => {
             // console.log(JSON.stringify(res.result, null, 2));
-            console.log("Result is: ")
-            console.log (res.result.output.text[0]);
+            console.log("Result is: " + res.result.output.text[0]);
+            // console.log(JSON.stringify(res.result.output))
+            if (userMessage=="Hi") console.log(JSON.stringify(res.result))
+
+            console.log("B");
             return res.result.output.text[0];
+        }).then((data)=>{
+            console.log("C");
+            next(null, data);
         })
         .catch(err => {
             console.log(err)
