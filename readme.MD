@@ -7,7 +7,7 @@ Omita is a Virtual Assistant with Cognitive abilities. Able to understand expres
 ### General Social Interation
 Omita is capable conversing with human in Natural Language.
 
-### Understand Humour
+### Understands Humour
 Comprehensive cognition of jokes and humour. 
 
 ## Upcoming Features
@@ -23,3 +23,5 @@ Comprehensive cognition of jokes and humour.
 ### Improved UI
 
 ### SMS Spoofing
+
+### Awkward situation avoidance
