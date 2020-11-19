@@ -11,11 +11,13 @@ $(document).ready(function () {
     });
 
     $("#btnSubmit").click(function () {
+        var chat = document.getElementById('userMessageQueue');
         var userMessage = $("#userMessage").val();
         userMessage = userMessage.trim();
         var formattedUserMessage = `<p id="user_id">Me: ${userMessage}</p>`;
         $("#userMessageQueue").append(formattedUserMessage);
         sendMessageToBot(userMessage);
+        chat.scrollTop = chat.scrollHeight - chat.clientHeight;
     })
 })
 

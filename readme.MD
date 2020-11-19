@@ -12,6 +12,6 @@ Omita is a Virtual Assistant...
 
 ### Able to perform Mathematical Arithmetic
 
-### Business Marketting Mailer
+### Business Marketting Mailing
 
 ### SMS Spoofing
