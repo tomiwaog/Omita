@@ -14,15 +14,12 @@ router.post('/sendmessage', (req, res) => {
             console.log("Messenger log: Input is " + userInput);
             function test(){
                 return new Promise(function(resolve,reject) {
-                    console.log("A")
                     messengerService.sendMessage(userInput, function(err, data){
                         if (err){
-                            console.log("NOT WORKING")
                             console.log(err);
                             reject(err);
                         }
                         else {
-                            console.log("YAY");
                             return res.status(status).send("" + data);
                             resolve(data);
                         }
@@ -31,7 +28,6 @@ router.post('/sendmessage', (req, res) => {
                 })
             }
             test().then(botResponse=>{
-                console.log("D")
                 console.log("BOT Response in MESSENGER: " + botResponse)
                 return res.status(status).send("BOT SERVER: " + botResponse);
             })

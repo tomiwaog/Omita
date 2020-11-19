@@ -18,7 +18,6 @@ const assistant = WatsonServiceSetUp();
 
 function sendMessage(userMessage, next) {
     console.log("BOTMESSAGINGSERVICE: "+ userMessage);
-
     assistant.message({
         workspaceId: process.env.AGENTID,
         input: { 'text': userMessage }
@@ -26,13 +25,8 @@ function sendMessage(userMessage, next) {
         .then(res => {
             // console.log(JSON.stringify(res.result, null, 2));
             console.log("Result is: " + res.result.output.text[0]);
-            // console.log(JSON.stringify(res.result.output))
-            if (userMessage=="Hi") console.log(JSON.stringify(res.result))
-
-            console.log("B");
             return res.result.output.text[0];
         }).then((data)=>{
-            console.log("C");
             next(null, data);
         })
         .catch(err => {
