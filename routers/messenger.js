@@ -23,7 +23,7 @@ router.post('/sendmessage', (req, res) => {
                         }
                         else {
                             console.log("YAY");
-                            return res.status(status).send("BOT SERVER: " + data);
+                            return res.status(status).send("" + data);
                             resolve(data);
                         }
                     });
