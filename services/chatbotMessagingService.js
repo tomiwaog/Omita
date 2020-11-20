@@ -17,8 +17,6 @@ function WatsonServiceSetUp() {
 const assistant = WatsonServiceSetUp();
 let lastContext={};
 function sendMessage(userMessage, next) {
-    // userMessage = userMessage.userMessage;
-    // context = userMessage.context;
     console.log("BOTMESSAGINGSERVICE: "+ userMessage);
     assistant.message({
         workspaceId: process.env.CONVERSATIONENGINE_AGENTID,

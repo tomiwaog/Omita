@@ -23,15 +23,13 @@ router.post('/sendmessage', (req, res) => {
                             return res.status(status).send("" + data);
                             resolve(data);
                         }
-                    });
-                    
+                    });   
                 })
             }
             test().then(botResponse=>{
                 console.log("BOT Response in MESSENGER: " + botResponse)
                 return res.status(status).send("BOT SERVER: " + botResponse);
             })
-            
         }
         else {
             console.log("NO USER INPUT FOUND");
