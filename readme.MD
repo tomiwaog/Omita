@@ -5,9 +5,12 @@ Omita is a Virtual Assistant with Cognitive abilities. Able to understand expres
 !["Omita Artificial Intelligence BOT" having a conversation with human](https://github.com/tomiwaog/omita/blob/master/images/omita_bot.PNG?raw=true)
 
 ### Live Demo
-You can test the bot live via [Omita Live test](https://omita.loca.lt).
-The link is tunnelled to a localhost, hence the machine may not be online at time of visting.
+NOTE: The BOT server is tunnelled to a localhost and the host machine may be offline at time of visitng.
 Tunneling service provided by [LocalTunnel](https://github.com/localtunnel/localtunnel)
+
+Test Servers:
+[Omita Live test Server 1](https://omita.loca.lt)
+[Omita Live test Server 2](https://omitabot.loca.lt)
 
 ### General Social Interation
 Omita is capable conversing with human in Natural Language.
