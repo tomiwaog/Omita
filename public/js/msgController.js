@@ -1,6 +1,7 @@
 "use strict";
 
 $(document).ready(function () {
+    sendMessageToBot("");
 
     $("#userMessage").keypress(function (e) {
         var code = (e.keyCode ? e.keyCode : e.which)

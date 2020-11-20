@@ -15,16 +15,21 @@ function WatsonServiceSetUp() {
 }
 
 const assistant = WatsonServiceSetUp();
-
+let lastContext={};
 function sendMessage(userMessage, next) {
+    // userMessage = userMessage.userMessage;
+    // context = userMessage.context;
     console.log("BOTMESSAGINGSERVICE: "+ userMessage);
     assistant.message({
         workspaceId: process.env.AGENTID,
-        input: { 'text': userMessage }
+        context: lastContext,
+        input: { 'text': userMessage}
     })
         .then(res => {
             // console.log(JSON.stringify(res.result, null, 2));
             console.log("Result is: " + res.result.output.text[0]);
+            console.log(res.result.context)
+            lastContext = res.result.context;
             return res.result.output.text[0];
         }).then((data)=>{
             next(null, data);
@@ -39,3 +44,7 @@ function getMessage(userInput) {
 }
 
 module.exports = { sendMessage, getMessage };
+
+
+// sendMessage("what is your number", function(){});
+// sendMessage("07775858585", function(){});
