@@ -12,19 +12,45 @@
 
 <body>
 
-      
+
     <div class="container">
         <nav class="navbar navbar-light bg-light">
-            <a class="navbar-brand">Omita - Your favorite Virtual Assistant</a>
-          </nav>
-          
-        <h1>Omita Virtual Assistant</h1>
-        <p id="userMessageQueue" style="height: 360px; overflow-y: scroll;"></p>
+            <a class="navbar-brand">Omita - Virtual Assistant</a>
+        </nav>
+
+        <!-- <div class="row justify-content-md-center">
+            <h3>Omita Virtual Assistant Chat</h3>
+            <p id="userMessageQueue" style="height: 360px; overflow-y: scroll;"></p>
+        </div>
+
+        <div class="row justify-content-md-center">
+            <div class="row">
+                <div class="col">
+                    <textarea id="userMessage" class="form-control" rows="2"></textarea>
+                </div>
+                <button id="btnSubmit" type="button" class="btn btn-secondary" style="float:left">Send</button>
+            </div>
+        </div> -->
+
         <div class="row">
-            <div class="col"><textarea id="userMessage" class="form-control" id="exampleFormControlTextarea1" rows="2"
-                    style="float:left"></textarea></div>
-            <div class="col"><button id="btnSubmit" type="button" class="btn btn-secondary"
-                    style="float:left">Send</button></div>
+            <div class="col-sm-8">
+                <h3 class="text-center">Omita Virtual Assistant Chat</h3>
+                <p id="userMessageQueue" style="height: 360px; overflow-y: scroll;"></p>
+
+                <div class="row">
+                    <div class="col-sm-10">
+                        <textarea id="userMessage" class="form-control" rows="2"></textarea>
+                    </div>
+                    <div class="col-sm-2" style="float:left">
+                        <button id="btnSubmit" type="button" class="btn btn-secondary">Send</button>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-sm-4">
+                <img class="img-fluid img-thumbnail"
+                    src="../images/chatbot.jpeg" />
+            </div>
         </div>
     </div>
 </body>

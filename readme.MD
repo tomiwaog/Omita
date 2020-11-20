@@ -11,6 +11,8 @@ Tunneling service provided by [PageKite](https://pagekite.net/)
 If you're able to catch the host online, it'd be at of the following Test Servers:
 * [Omita Test Server 1](https://omita.pagekite.me/)
 
+### Improved UI
+UI has been improved since last screenshot. Observable via test URL.
 
 ### General Social Interation
 Omita is capable conversing with human in Natural Language.
@@ -27,8 +29,6 @@ Comprehensive cognition of jokes and humour.
 ### Able to perform Mathematical Arithmetic
 
 ### Business Marketting Mailing
-
-### Improved UI
 
 ### SMS Spoofing
 
