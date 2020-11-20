@@ -2,7 +2,7 @@
 Omita is a Virtual Assistant with Cognitive abilities. Able to understand expressions, humour, apathy and empathy.
 
 ### Screenshots
-!["Omita Artificial Intelligence BOT" having a conversation with human](https://github.com/tomiwaog/omita/blob/master/images/omita_bot.PNG?raw=true)
+!["Omita Artificial Intelligence BOT" having a conversation with human](https://github.com/tomiwaog/omita/blob/master/public/images/omita_bot.PNG?raw=true)
 
 ### Live Demo
 NOTE: The BOT server is tunnelled to a localhost and the host machine may be offline at time of visitng.
