@@ -7,9 +7,9 @@ function WatsonServiceSetUp() {
     const assistant = new AssistantV1({
         version: '2020-04-01',
         authenticator: new IamAuthenticator({
-            apikey: process.env.MESSENGER_API_KEY,
+            apikey: process.env.CONVERSATIONENGINE_API_KEY,
         }),
-        serviceUrl: 'https://api.eu-gb.assistant.watson.cloud.ibm.com',
+        serviceUrl: process.env.CONVERSATIONENGINE_SERVICE_URL,
     });
     return assistant;
 }
@@ -21,7 +21,7 @@ function sendMessage(userMessage, next) {
     // context = userMessage.context;
     console.log("BOTMESSAGINGSERVICE: "+ userMessage);
     assistant.message({
-        workspaceId: process.env.AGENTID,
+        workspaceId: process.env.CONVERSATIONENGINE_AGENTID,
         context: lastContext,
         input: { 'text': userMessage}
     })
@@ -44,7 +44,3 @@ function getMessage(userInput) {
 }
 
 module.exports = { sendMessage, getMessage };
-
-
-// sendMessage("what is your number", function(){});
-// sendMessage("07775858585", function(){});
