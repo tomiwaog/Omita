@@ -20,6 +20,8 @@ Omita is capable conversing with human in Natural Language.
 ### Understands Humour
 Comprehensive cognition of jokes and humour. 
 
+### SMS Spoofing
+BOT is now able to send SMS to User's friends and network. SMS is also possible.
 ## Upcoming Features
 
 ### Arrange Emergency PhoneCalls
@@ -29,8 +31,6 @@ Comprehensive cognition of jokes and humour.
 ### Able to perform Mathematical Arithmetic
 
 ### Business Marketting Mailing
-
-### SMS Spoofing
 
 ### Awkward situation avoidance
 
