@@ -2,3 +2,4 @@ node_modules/
 logs/
 *ignore
 .env
+smsService.js

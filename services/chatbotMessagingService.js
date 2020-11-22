@@ -1,3 +1,4 @@
+require('dotenv').config();
 const { resolveInclude } = require('ejs');
 
 function WatsonServiceSetUp() {
@@ -15,21 +16,33 @@ function WatsonServiceSetUp() {
 }
 
 const assistant = WatsonServiceSetUp();
-let lastContext={};
+let lastContext = {};
 function sendMessage(userMessage, next) {
-    console.log("BOTMESSAGINGSERVICE: "+ userMessage);
     assistant.message({
         workspaceId: process.env.CONVERSATIONENGINE_AGENTID,
         context: lastContext,
-        input: { 'text': userMessage}
+        input: { 'text': userMessage }
     })
         .then(res => {
             // console.log(JSON.stringify(res.result, null, 2));
-            console.log("Result is: " + res.result.output.text[0]);
-            console.log(res.result.context)
             lastContext = res.result.context;
-            return res.result.output.text[0];
-        }).then((data)=>{
+
+            //Enable SMS Feature if SMS Request is initiated
+            let messageDetails = res.result.output.custom_api ? res.result.output.custom_api.sms : "";
+            if (process.env.SMS_FEATURE == 'ON' && messageDetails) {
+                smsFeature(messageDetails, res);
+            }
+            console.log("User Input: " + userMessage);
+            //Combine Watson Multiple Responses into one response
+            let combinedResponse = "";
+            (res.result.output.text).forEach(response => {
+                combinedResponse += response + "<br />";
+            })
+            console.log("Watson Combined Response: " + combinedResponse);
+            return combinedResponse;
+
+        }).then(data => {
+            console.log("Response to be passed to the caller/UI: " + data);
             next(null, data);
         })
         .catch(err => {
@@ -37,8 +50,28 @@ function sendMessage(userMessage, next) {
         });
 }
 
-function getMessage(userInput) {
-    return "You made a get request: " + "SERVER REsponding"
-}
 
-module.exports = { sendMessage, getMessage };
+function smsFeature(messageDetails, res) {
+    if (process.env.SMS_FEATURE == 'ON' && messageDetails) {
+        //If SMS Token was provided by user, Call SMS API
+        if (messageDetails.sms_token != process.env.SMS_TOKEN_PASSWORD) {
+            console.log("Message Not Sent. USER didnt have a token");
+            res.result.output.text.push("<br/>Message was not sent, It costs a lot to keep this service running!");
+        }
+        else require('./smsServer').sendSMS({ toAddress: messageDetails.receiver_number, messageContent: messageDetails.sms_content, fromAddress: messageDetails.sender_identity },
+            (messageResult) => {
+                if (messageResult['status'] == 200) {
+                    res.result.output.text.push("<br/>Message was sent!");
+                    console.log("SMS Message sent with the following details");
+                    console.log(messageDetails);
+                }
+                else {
+                    res.result.output.text.push("Message was not sent, Might be an issue with Mobile Number " + toAddress);
+                    console.log("Error, Message was not delivered!.");
+                    console.log(res.result.output.text);
+                    return "Message was not sent, It costs a lot to keep this service running!"
+                }
+            })
+    }
+}
+module.exports = { sendMessage };

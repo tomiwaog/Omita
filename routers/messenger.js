@@ -12,7 +12,7 @@ router.post('/sendmessage', (req, res) => {
         if (req.body.userMessage) {
             const userInput = req.body.userMessage
             console.log("Messenger log: Input is " + userInput);
-            function test(){
+            function sendMessageToBotService(){
                 return new Promise(function(resolve,reject) {
                     messengerService.sendMessage(userInput, function(err, data){
                         if (err){
@@ -26,7 +26,7 @@ router.post('/sendmessage', (req, res) => {
                     });   
                 })
             }
-            test().then(botResponse=>{
+            sendMessageToBotService().then(botResponse=>{
                 console.log("BOT Response in MESSENGER: " + botResponse)
                 return res.status(status).send("BOT SERVER: " + botResponse);
             })
