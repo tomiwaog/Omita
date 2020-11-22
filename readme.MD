@@ -22,11 +22,13 @@ Comprehensive cognition of jokes and humour.
 
 ### SMS Spoofing
 BOT is now able to send SMS to User's friends and network. SMS is also possible.
+
+### Able to communicate to friends on users' behalf
+Bot is able to communicate with Friends using SMS, future update will include Automatic Phone calls for Birthday Wishes and events
+
 ## Upcoming Features
 
 ### Arrange Emergency PhoneCalls
-
-### Able to communicate to friends on users' behalf
 
 ### Able to perform Mathematical Arithmetic
 
