@@ -12,13 +12,13 @@ $(document).ready(function () {
     });
 
     $("#btnSubmit").click(function () {
-        var chat = document.getElementById('userMessageQueue');
         var userMessage = $("#userMessage").val();
         userMessage = userMessage.trim();
         var formattedUserMessage = `<p id="user_id">Me: ${userMessage}</p>`;
         $("#userMessageQueue").append(formattedUserMessage);
         sendMessageToBot(userMessage);
-        chat.scrollTop = chat.scrollHeight - chat.clientHeight;
+
+        
     })
 })
 
@@ -33,6 +33,8 @@ function sendMessageToBot(userInput) {
             var response = `${botResponse}`;
             var formattedResponse = `<p id="bot_reply" style="color: green">BOT: ${response} </p>`;
             $("#userMessageQueue").append(formattedResponse);
+            var chat = document.getElementById('userMessageQueue');
+            chat.scrollTop = chat.scrollHeight;
         }
         else if (xhr.status=400){
             console.error("Invalid Input provided");
@@ -45,5 +47,7 @@ function sendMessageToBot(userInput) {
         console.log("Not found")
     }
     var result = JSON.stringify({"userMessage":userInput});
+
     xhr.send(result);
+
 }
