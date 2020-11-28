@@ -9,7 +9,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.set('view engine', 'ejs');
-path.join(__dirname, '../views');
+path.join(__dirname, './views');
 
 app.use('/assets', express.static(__dirname+'/public'));
 app.get('/', function(req,res){
