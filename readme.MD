@@ -10,7 +10,7 @@ Tunneling service provided by [PageKite](https://pagekite.net/)
 
 If you're able to catch the host online, it'd be at of the following Test Servers:
 * [Omita v1.1.0 Server](https://omita.pagekite.me/)
-* [Omita v1.0.0 Server] (http://91.208.184.68:54321);
+* [Omita v1.0.0 Server] (http://91.208.184.68:54321/omita);
 
 ### Improved UI
 UI has been improved since last screenshot. Observable via test URL.
