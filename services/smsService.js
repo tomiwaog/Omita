@@ -1,6 +1,7 @@
+const path = require('path')
+require('dotenv').config({ path: path.resolve(__dirname, '../.env') });
 const { response } = require('express');
 const Nexmo = require('nexmo');
-require('dotenv').config();
 
 function sendSMS(from, to, text, callback) {
   console.log("RUNNING SMS SERVICE PAID API");
