@@ -1,5 +1,5 @@
-const path = require('path')
-require('dotenv').config({ path: path.resolve(__dirname, '../.env') });
+const path = require('path');
+require('dotenv').config({ path: path.resolve(__dirname, './.env') });
 var express = require('express');
 
 var app = express();
