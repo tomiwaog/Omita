@@ -1,5 +1,5 @@
 node_modules/
 logs/
-*ignore
-.env
-smsService.js
+//*ignore
+//.env
+//smsService.js
